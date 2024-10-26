@@ -25,15 +25,20 @@
     </div>
     <script>
 
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+        var container = document.querySelector("#unity-container");
+        var canvas = document.querySelector("#unity-canvas");
+        var loadingBar = document.querySelector("#unity-loading-bar");
+        var progressBarFull = document.querySelector("#unity-progress-bar-full");
+        var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+        var warningBanner = document.querySelector("#unity-warning");     
 
-        canvas.width = window.innerWidth - window.scrollbars.width;
-        canvas.height = window.innerHeight - window.scrollbars.height;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth - (window.innerWidth * 0.0016);
+            canvas.height = window.innerHeight - (window.innerHeight * 0.09);
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
